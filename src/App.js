@@ -7,20 +7,18 @@ import SearchBox from "./components/search-box/search-box.component";
 const App = () => {
   const [monsters, setMonsters] = useState([]);
   const [searchField, setSearchField] = useState("");
-  // const []
+  const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw response;
-        })
-        .then((users) => setMonsters(users))
-        .catch((error) => console.error(error));
-    }, 1000);
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      .then((users) => setMonsters(users))
+      .catch((error) => console.error(error));
   }, []);
 
   const onSearchChange = (e) => {
@@ -28,9 +26,15 @@ const App = () => {
     setSearchField(searchFieldString);
   };
 
-  const filteredMonsters = monsters.filter((monster) => {
-    return monster.name.toLowerCase().includes(searchField);
-  });
+  useEffect(() => {
+    const newFilteredMonsters = monsters.filter((monster) => {
+      return monster.name.toLowerCase().includes(searchField);
+    });
+
+    setFilteredMonsters(newFilteredMonsters);
+
+    console.log("effect is firrinng");
+  }, [monsters, searchField]);
 
   return (
     <div className="App">
