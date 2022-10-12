@@ -10,16 +10,18 @@ const App = () => {
   // const []
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw response;
-      })
-      .then((users) => setMonsters(users))
-      .catch((error) => console.error(error));
-  });
+    setTimeout(() => {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw response;
+        })
+        .then((users) => setMonsters(users))
+        .catch((error) => console.error(error));
+    }, 1000);
+  }, []);
 
   const onSearchChange = (e) => {
     const searchFieldString = e.target.value.toLowerCase();
