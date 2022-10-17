@@ -1,8 +1,7 @@
-import "./App.css";
 import { useEffect, useState } from "react";
-
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
+import "./App.css";
 
 const App = () => {
   const [monsters, setMonsters] = useState([]);
@@ -32,8 +31,6 @@ const App = () => {
     });
 
     setFilteredMonsters(newFilteredMonsters);
-
-    console.log("effect is firrinng");
   }, [monsters, searchField]);
 
   return (
