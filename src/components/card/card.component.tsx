@@ -16,7 +16,7 @@ const Card = ({ monster }: CardProps) => {
         alt={`monster-${name}`}
       />
       <h2>{name}</h2>
-      <p>{email}</p>
+      <a href={`mailto:${email}`}>{email}</a>
     </div>
   );
 };

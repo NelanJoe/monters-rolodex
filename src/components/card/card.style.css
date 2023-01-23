@@ -20,11 +20,16 @@
   margin: 1.2rem 0;
 }
 
+.card-container a {
+  text-decoration: none;
+  color: #5bc0f8;
+  font-style: italic;
+  font-size: 14px;
+}
+
 .card-container:hover {
   transform: scale(1.05);
 }
-
-
 
 @media (max-width: 768px) {
   .card-container {
