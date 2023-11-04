@@ -1,6 +1,7 @@
-import { Monster } from "../../App";
+import { Monster } from "../../types/monster.type";
 
 import Card from "../card/card.component";
+
 import "./card-list.style.css";
 
 type CardListProps = {

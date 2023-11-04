@@ -1,14 +1,12 @@
 import { ChangeEvent, useEffect, useState } from "react";
+
 import CardList from "./components/card-list/card-list.component";
 import SearchBox from "./components/search-box/search-box.component";
-import "./App.css";
-import { getData } from "./utils/data.utils";
 
-export type Monster = {
-  id: string;
-  name: string;
-  email: string;
-};
+import { getData } from "./utils/data.utils";
+import type { Monster } from "./types/monster.type";
+
+import "./App.css";
 
 const App = () => {
   const [monsters, setMonsters] = useState<Monster[]>([]);
